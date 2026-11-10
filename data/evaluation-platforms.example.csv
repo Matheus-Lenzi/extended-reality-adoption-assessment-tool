@@ -1,0 +1,11 @@
+thesisTable,platform,confidenceTier,characteristic,score
+1,Example Platform A,A,Performance Efficiency,3.500
+1,Example Platform A,A,Compatibility,3.700
+1,Example Platform A,A,Functional Suitability,3.900
+1,Example Platform A,A,Maintainability,4.100
+1,Example Platform A,A,Security,4.300
+1,Example Platform B,A,Performance Efficiency,2.500
+1,Example Platform B,A,Compatibility,2.700
+1,Example Platform B,A,Functional Suitability,2.900
+1,Example Platform B,A,Maintainability,3.100
+1,Example Platform B,A,Security,3.300

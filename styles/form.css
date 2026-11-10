@@ -1,0 +1,69 @@
+/* XR DIA, one stylesheet for every form page, injected into Custom Form Styling at build time.
+   n8n strips every attribute from custom HTML, so blocks are styled by element inside div.html.
+   n8n puts this CSS in its own style element, so @import is valid; system fonts are the fallback.
+   n8n strips anything tag-like from this CSS: never write a less-than or greater-than sign here. */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+:root {
+  --paper: #ffffff; --frame: #f7f7f8; --ink: #131416; --ink-soft: #3b3e43; --muted: #6c7077; --rule: #e2e3e6; --faint: #f4f5f6;
+  --font-family: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font-size-body: 14px; --font-size-label: 14px; --font-size-input: 14px; --font-size-header: 22px; --font-size-paragraph: 14px;
+  --font-size-html-h3: 15px;
+  --color-background: var(--frame); --color-card-bg: var(--paper); --color-card-border: var(--rule); --color-header: var(--ink);
+  --color-label: var(--ink); --color-input-text: var(--ink); --color-input-bg: var(--paper); --color-input-border: var(--rule);
+  --color-focus-border: var(--ink); --color-link: var(--ink); --color-html-text: var(--ink-soft); --color-html-link: var(--ink);
+  --color-submit-btn-bg: var(--ink); --color-submit-btn-text: var(--paper); --color-required: var(--muted); --color-error: #b3261e;
+  --border-radius-card: 6px; --border-radius-input: 3px; --box-shadow-card: none; --container-width: 760px;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --paper: #111214; --frame: #0b0c0d; --ink: #ecedef; --ink-soft: #c4c7cc; --muted: #8e929a; --rule: #2b2d31; --faint: #18191c; --color-error: #f2b8b5; }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body { background: var(--frame); color: var(--ink); -webkit-font-smoothing: antialiased; }
+/* n8n's own mobile rule adds 24px padding to a 95% width, which overflows a phone screen. */
+.container { text-align: left; width: 100%; max-width: var(--container-width); padding: 24px 16px; }
+.card { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 28px 24px; }
+.form-header h1 { font-weight: 600; letter-spacing: -0.01em; text-wrap: balance; }
+.form-header p { color: var(--muted); }
+
+.form-label { font-weight: 500; line-height: 1.5; color: var(--ink); display: block; margin-bottom: 8px; }
+.form-input, form select, form textarea { background: var(--paper); color: var(--ink); border: 1px solid var(--rule); border-radius: 3px; font-family: var(--font-family); }
+.form-input:focus, form select:focus, form textarea:focus { outline: 2px solid var(--ink); outline-offset: 1px; }
+
+/* Radios become chips; the checked chip is filled. The real input stays focusable for keyboards. */
+.multiselect[data-radio-select] { display: flex; flex-wrap: wrap; gap: 6px; padding: 0; }
+.multiselect[data-radio-select] .multiselect-option { position: relative; display: flex; padding: 0; }
+.multiselect[data-radio-select] .multiselect-checkbox { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+.multiselect[data-radio-select] .multiselect-option label { padding: 8px 14px; border: 1px solid var(--rule); border-radius: 3px; color: var(--ink); font-size: 13.5px; line-height: 1.3; background: var(--paper); }
+.multiselect[data-radio-select] .multiselect-checkbox:checked + label { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.multiselect[data-radio-select] .multiselect-checkbox:focus-visible + label { outline: 2px solid var(--ink); outline-offset: 2px; }
+.multiselect[data-radio-select] .multiselect-option:hover label { border-color: var(--ink); }
+
+/* The 0-10 scale: eleven equal buttons in one row; on a phone, two rows so each stays thumb-sized. */
+.multiselect[data-radio-select]:has(.multiselect-option:nth-child(11)) { display: grid; grid-template-columns: repeat(11, minmax(0, 1fr)); gap: 4px; max-width: 560px; }
+.multiselect[data-radio-select]:has(.multiselect-option:nth-child(11)) label { width: 100%; padding: 9px 0; text-align: center; font-family: var(--mono); font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) {
+  .card { padding: 20px 14px; }
+  .multiselect[data-radio-select]:has(.multiselect-option:nth-child(11)) { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px; }
+  .multiselect[data-radio-select]:has(.multiselect-option:nth-child(11)) label { padding: 12px 0; }
+}
+
+/* Custom HTML blocks: section headings, notes, the context box (first block) and the evidence tables. */
+div.html { color: var(--ink-soft); }
+div.html h3 { font-weight: 600; color: var(--ink); margin: 18px 0 6px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
+div.html p { margin: 0 0 6px; line-height: 1.5; }
+div.html em { font-style: normal; color: var(--muted); font-size: 13px; }
+div.html strong { color: var(--ink); font-weight: 500; }
+div.html table { width: 100%; max-width: 560px; border-collapse: collapse; font-size: 13px; margin: 0 0 6px; font-variant-numeric: tabular-nums; }
+div.html th, div.html td { text-align: left; padding: 5px 10px; border: 1px solid var(--rule); }
+div.html th { font-weight: 500; color: var(--muted); background: var(--faint); }
+.inputs-wrapper div.html:first-child table { max-width: none; background: var(--faint); }
+.inputs-wrapper div.html:first-child td:first-child { color: var(--muted); width: 1%; white-space: nowrap; }
+
+#submit-btn { background: var(--ink); color: var(--paper); border-radius: 3px; font-family: var(--font-family); font-weight: 500; }
+#submit-btn:hover { opacity: 0.88; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+textarea { min-height: 140px; }

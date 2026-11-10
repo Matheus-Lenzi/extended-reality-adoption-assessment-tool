@@ -1,0 +1,12 @@
+{
+  "name": "extended-reality-adoption-assessment-tool",
+  "description": "A staged diagnostic pipeline for pre-deployment XR adoption decisions in industry, running on n8n",
+  "scripts": {
+    "test": "node --test tests/",
+    "verify": "python3 scripts/check.py",
+    "check": "npm test && npm run verify",
+    "build": "node scripts/build.mjs",
+    "deploy": "npm run build && CHECK_TABLES=1 npm test && node --env-file=.env scripts/deploy.mjs"
+  },
+  "license": "MIT"
+}

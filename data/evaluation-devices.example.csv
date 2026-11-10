@@ -1,0 +1,25 @@
+device,characteristic,criterion,score
+Example Headset A,Performance & Technical,Weight,2
+Example Headset A,Performance & Technical,Headstrap,3
+Example Headset A,Performance & Technical,Adjustable Diopter,4
+Example Headset A,Performance & Technical,Ocularity,5
+Example Headset A,Performance & Technical,Visible FoV,2
+Example Headset A,Performance & Technical,Rendered FoV,3
+Example Headset A,Performance & Technical,Binocular Overlap,4
+Example Headset A,Performance & Technical,Resolution,3
+Example Headset A,Performance & Technical,Average Pixel Density,2
+Example Headset A,Performance & Technical,Battery Life,4
+Example Headset A,Performance & Technical,Charge Time,3
+Example Headset A,Performance & Technical,Tracking Type,5
+Example Headset B,Performance & Technical,Weight,3
+Example Headset B,Performance & Technical,Headstrap,4
+Example Headset B,Performance & Technical,Adjustable Diopter,5
+Example Headset B,Performance & Technical,Ocularity,5
+Example Headset B,Performance & Technical,Visible FoV,3
+Example Headset B,Performance & Technical,Rendered FoV,4
+Example Headset B,Performance & Technical,Binocular Overlap,5
+Example Headset B,Performance & Technical,Resolution,4
+Example Headset B,Performance & Technical,Average Pixel Density,3
+Example Headset B,Performance & Technical,Battery Life,5
+Example Headset B,Performance & Technical,Charge Time,4
+Example Headset B,Performance & Technical,Tracking Type,5
