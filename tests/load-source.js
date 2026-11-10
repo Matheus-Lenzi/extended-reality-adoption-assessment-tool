@@ -15,12 +15,11 @@ function loadSource() {
 
 // The real evaluation scores are not published, so fall back to the example data. Every test that
 // uses this computes its expectation from whatever is loaded, so both datasets pass.
+// Always the example measurements, never the real ones: a test that reads whichever file
+// happens to be present asserts a different number on each machine.
 function referenceData() {
   const folder = path.join(__dirname, '..', 'data');
-  const pick = (name) => {
-    const real = path.join(folder, name + '.csv');
-    return csvRows(fs.existsSync(real) ? real : path.join(folder, name + '.example.csv'));
-  };
+  const pick = (name) => csvRows(path.join(folder, name + '.example.csv'));
   return { devices: pick('evaluation-devices'), platforms: pick('evaluation-platforms') };
 }
 

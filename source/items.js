@@ -1,4 +1,4 @@
-// Question text is verbatim from Final_Assessment_Stages.xlsx; scripts/check.py proves it.
+// Question text is verbatim from assessment-stages.xlsx; scripts/check.py proves it.
 // external: skipped under configuration A, where one organisation holds all three roles.
 const items = [
   { code: 'D1', form: 'adopter', section: 'Danger', type: 'scale', text: 'How much danger-related risk in this task could XR safely simulate instead of the user encountering it for real? (0 = no danger element present, 10 = high danger XR would substantially de-risk)', textDe: 'Wie viel von dem Risiko bei dieser Aufgabe könnte XR gefahrlos nachstellen, statt dass die Person es wirklich erlebt? (0 = keine Gefahr vorhanden, 10 = hohe Gefahr, XR würde sie deutlich verringern)' },
