@@ -7,6 +7,28 @@ in parallel, and a report names what to look at and who should act on it. Englis
 Built for the research paper *A Staged Diagnostic Pipeline for Pre-Deployment XR Adoption Decisions
 in Industry*.
 
+## What it looks like
+
+The four configurations the gate can record. Which roles sit in which organisation decides what
+Layer 4 asks, and which relationships have to be verified rather than taken on trust.
+
+![The four configurations: A in-house, B1 supplier builds and sets up, B2 supplier builds and the adopting company sets up, C fully distributed](documentation/images/configuration-gate.png)
+
+The company page. One row per deployment, one link per role, and the report when the answers are in.
+
+![The company page, listing three deployments with Adopter, Developer and Integrator links and a report link each](documentation/images/company-page.png)
+
+The adopter questionnaire. Each role is asked only what it can answer for itself.
+
+![The adopter form, with the task context at the top and the Danger, Immersion, Verification, Expertise, Collaboration, Site conditions and concerns sections below](documentation/images/form-adopter.png)
+
+The report. A plain summary, the fit score against what the equipment delivers, then the findings
+per layer, each with the role that should act on it.
+
+![The report, with the summary, the task and technology fit score, and the findings grouped by layer](documentation/images/report-full.png)
+
+The screenshots come from a test deployment with invented answers, not from a real company.
+
 ## Documentation
 
 | | |
